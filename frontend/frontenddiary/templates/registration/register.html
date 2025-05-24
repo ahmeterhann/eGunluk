@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<form method="POST" action="">
+    {% csrf_token %}
+    <label for="username">Kullanıcı İsmi</label>
+    <input type="text" name="username" id="username" required>
+
+    <label for="password">Şifre</label>
+    <input type="password" name="password" id="password" required>
+
+    <label for="email">E-Mail</label>
+    <input type="email" name="email" id="email" required>
+
+    <button type="submit">Kayıt Ol</button>
+</form>
+
+
+
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Tüm Günlükler</h1>
+<ul>
+{% for diary in diaries %}
+    <li><strong>{{ diary.title }}</strong>: {{ diary.content }} - {{ diary.created_at }}</li>
+{% endfor %}
+</ul>
+
+
+
+{% endblock %}
