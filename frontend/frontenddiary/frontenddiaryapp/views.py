@@ -176,3 +176,45 @@ def diary_detail_view(request, id):
         messages.error(request, f'Bağlantı hatası: {str(e)}')
 
     return redirect('frontenddiaryapp:diary-list-view')  # ya da uygun başka bir sayfa
+
+
+def diary_update_view(request, pk):
+    if not request.session.get('access_token'):
+        messages.error(request, 'Giriş yapmalısınız.')
+        return redirect('login-view')
+
+    access_token = request.session.get('access_token')
+    headers = {
+        'Authorization': f'Bearer {access_token}'
+    }
+
+    api_url = f'http://127.0.0.1:8000/diary/api/diaries/{pk}/'
+
+    if request.method == 'POST':
+        data = {
+            'title': request.POST.get('title'),
+            'content': request.POST.get('content'),
+            'date': request.POST.get('date'),
+        }
+        try:
+            response = requests.put(api_url, json=data, headers=headers, timeout=5)
+            if response.status_code == 200:
+                messages.success(request, 'Günlük başarıyla düzenlendi.')
+                return redirect('frontenddiaryapp:diary-list-view')
+            else:
+                messages.error(request, f'Güncelleme hatası: {response.status_code}')
+        except requests.exceptions.RequestException as e:
+            messages.error(request, f'Bağlantı hatası: {str(e)}')
+
+        # PUT başarısızsa, kullanıcıdan gelen verilerle formu tekrar doldur
+        diary = {
+            'title': request.POST.get('title', ''),
+            'content': request.POST.get('content', ''),
+            'date': request.POST.get('date', '')
+        }
+        return render(request, 'frontenddiaryapp/updatediary.html', {'diary': diary})
+
+    else:
+        # GET geldiğinde bu view hiçbir işlem yapmasın, ya hata ya redirect
+        messages.error(request, 'Geçersiz istek.')
+        return redirect('frontenddiaryapp:diary-list-view')
