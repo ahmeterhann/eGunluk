@@ -29,7 +29,7 @@
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav me-auto mb-2 mb-md-0">
                     <li class="nav-item"> <a class="nav-link active" aria-current="page" href="{% url 'frontenddiaryapp:add-diary-view' %}">Günlük Ekle</a> </li>
-                    <li class="nav-item"> <a class="nav-link" href="#">Günlüklerim</a> </li>
+                    <li class="nav-item"> <a class="nav-link" href="{% url 'frontenddiaryapp:diary-list-view' %}">Günlüklerim</a> </li>
                     <li class="nav-item"> <a class="nav-link" href="{% url 'login-view' %}">Giriş Yap</a> </li>
                     <li class="nav-item"> <a class="nav-link" href="{% url 'register-view' %}">Kayıt Ol</a> </li>
                     <li class="nav-item"> <a class="nav-link" href="{% url 'logout-view' %}">Çıkış Yap</a> </li>

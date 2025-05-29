@@ -126,3 +126,53 @@ def add_diary_view(request):
     return render(request, 'frontenddiaryapp/adddiary.html')
 
 
+def diary_list_view(request):
+    if not request.session.get('access_token'):
+        messages.error(request, 'Giriş yapmalısınız.')
+        return redirect('login-view')
+
+    access_token = request.session.get('access_token')
+    headers = {
+        'Authorization': f'Bearer {access_token}'
+    }
+    api_url = 'http://127.0.0.1:8000/diary/api/diaries/'  # API endpoint
+
+    try:
+        response = requests.get(api_url, headers=headers, timeout=5)
+        if response.status_code == 200:
+            diaries = response.json()
+        else:
+            messages.error(request, f'API Hatası: {response.status_code}')
+            diaries = []
+    except requests.exceptions.RequestException as e:
+        messages.error(request, f'Bağlantı hatası: {str(e)}')
+        diaries = []
+
+    return render(request, 'frontenddiaryapp/diarylist.html', {'diaries': diaries})
+
+
+
+def diary_detail_view(request, id):
+    if not request.session.get('access_token'):
+        messages.error(request, 'Giriş yapmalısınız.')
+        return redirect('login-view')
+
+    access_token = request.session.get('access_token')
+    headers = {
+        'Authorization': f'Bearer {access_token}'
+    }
+    api_url = f'http://127.0.0.1:8000/diary/api/diaries/{id}/'  # API endpoint
+
+    try:
+        response = requests.get(api_url, headers=headers, timeout=5)
+        if response.status_code == 200:
+            diary = response.json()
+            return render(request, 'frontenddiaryapp/updatediary.html', {'diary': diary})
+        elif response.status_code == 404:
+            messages.error(request, 'Günlük bulunamadı.')
+        else:
+            messages.error(request, f'API Hatası: {response.status_code}')
+    except requests.exceptions.RequestException as e:
+        messages.error(request, f'Bağlantı hatası: {str(e)}')
+
+    return redirect('frontenddiaryapp:diary-list-view')  # ya da uygun başka bir sayfa
