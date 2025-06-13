@@ -218,3 +218,27 @@ def diary_update_view(request, pk):
         # GET geldiğinde bu view hiçbir işlem yapmasın, ya hata ya redirect
         messages.error(request, 'Geçersiz istek.')
         return redirect('frontenddiaryapp:diary-list-view')
+    
+
+def diary_delete_view(request, pk):
+    if not request.session.get('access_token'):
+        messages.error(request, 'Giriş yapmalısınız.')
+        return redirect('login-view')
+
+    access_token = request.session.get('access_token')
+    headers = {
+        'Authorization': f'Bearer {access_token}'
+    }
+
+    api_url = f'http://127.0.0.1:8000/diary/api/diaries/{pk}/'
+
+    try:
+        response = requests.delete(api_url, headers=headers, timeout=5)
+        if response.status_code == 204:
+            messages.success(request, 'Günlük başarıyla silindi.')
+        else:
+            messages.error(request, f'Silme hatası: {response.status_code}')
+    except requests.exceptions.RequestException as e:
+        messages.error(request, f'Bağlantı hatası: {str(e)}')
+
+    return redirect('frontenddiaryapp:diary-list-view')
