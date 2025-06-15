@@ -7,6 +7,7 @@ from rest_framework import generics, permissions
 from .models import Diary
 from .serializer import DiarySerializer
 from django.shortcuts import get_object_or_404 
+from django.db.models import Q
 
 
 
@@ -81,3 +82,22 @@ class DiaryRetrieveUpdateDestroyView(APIView):
         diary = self.get_object(pk, request.user)
         diary.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+    
+
+class DiarySearchView(APIView):
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get(self, request):
+        query = request.query_params.get('q', '')  # ?q=aramaTerimi
+        if query:
+            diaries = Diary.objects.filter(
+                Q(user=request.user) & (
+                    Q(title__icontains=query) |
+                    Q(content__icontains=query)
+                )
+            )
+        else:
+            diaries = Diary.objects.filter(user=request.user)
+
+        serializer = DiarySerializer(diaries, many=True)
+        return Response(serializer.data)

@@ -2,6 +2,7 @@ import requests
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+import urllib.parse
 
 
 def register_view(request):
@@ -242,3 +243,30 @@ def diary_delete_view(request, pk):
         messages.error(request, f'Bağlantı hatası: {str(e)}')
 
     return redirect('frontenddiaryapp:diary-list-view')
+
+
+def search_results_view(request):
+    query = request.GET.get('q', '')
+    diaries = []
+    if query:
+        access_token = request.session.get('access_token')
+        if not access_token:
+            messages.error(request, 'Önce giriş yapmalısınız.')
+            return redirect('login-view')
+
+        headers = {'Authorization': f'Bearer {access_token}'}
+        
+        encoded_query = urllib.parse.quote(query)
+        api_url = f"http://127.0.0.1:8000/diary/api/diaries/search/?q={encoded_query}"
+    
+
+        try:
+            response = requests.get(api_url, headers=headers, timeout=5)
+            if response.status_code == 200:
+                diaries = response.json()
+            else:
+                messages.error(request, f"API Hatası: {response.status_code}")
+        except requests.exceptions.RequestException as e:
+            messages.error(request, f"Bağlantı hatası: {str(e)}")
+
+    return render(request, 'frontenddiaryapp/searchresults.html', {'diaries': diaries, 'query': query})
