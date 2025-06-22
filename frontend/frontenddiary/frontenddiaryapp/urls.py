@@ -11,6 +11,7 @@ urlpatterns = [
     path('savediaries/<int:pk>/', views.diary_update_view, name='diary-save-view'),
     path('deletediaries/<int:pk>', views.diary_delete_view, name='diary-delete-view'),
     path('search/', views.search_results_view, name='search-results-view'),
+    path('profile/', views.profile_view, name='profile-view'),
 
 
     

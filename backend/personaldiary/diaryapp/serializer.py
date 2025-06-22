@@ -2,6 +2,7 @@ from diaryapp.models import Diary
 from rest_framework import serializers
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
+from diaryapp.models import Profile
 
 # Kullanıcı kayıt için serializer
 class UserRegisterSerializer(serializers.Serializer):
@@ -60,6 +61,36 @@ class DiarySerializer(serializers.Serializer):
         instance.save()
         return instance
 
+
+
+
+class ProfileSerializer(serializers.Serializer):
+    first_name = serializers.CharField(allow_blank=True, required=False)
+    last_name = serializers.CharField(allow_blank=True, required=False)
+    age = serializers.IntegerField(required=False)
+    phone = serializers.CharField(allow_blank=True, required=False)
+    
+    def to_representation(self, instance):
+        return {
+            "username": instance.user.username,
+            "email": instance.user.email,
+            "first_name": instance.user.first_name,
+            "last_name": instance.user.last_name,
+            "age": instance.age,
+            "phone": instance.phone,
+        }
+
+    def update(self, instance, validated_data):
+        instance.age = validated_data.get('age', instance.age)
+        instance.phone = validated_data.get('phone', instance.phone)
+        instance.save()
+        
+        user = instance.user
+        user.first_name = validated_data.get('first_name', user.first_name)
+        user.last_name = validated_data.get('last_name', user.last_name)
+        user.save()
+        
+        return instance
 
 
 

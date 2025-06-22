@@ -4,5 +4,12 @@
 <div style="text-align: center; margin-top: 50px;">
     <h1>Hoş geldin {{ username }}!</h1>
     <p> eGünlük uygulamamıza giriş yaptın. Şimdi dilediğince gününü yazmaya başlayabilirsin!</p>
+
+    <a href="{% url 'frontenddiaryapp:profile-view' %}" 
+       class="btn btn-lg btn-primary mt-4" 
+       style="padding: 12px 40px; font-size: 1.25rem; font-weight: 600;">
+       Profilini Düzenle
+    </a>
+    
 </div>
 {% endblock %}

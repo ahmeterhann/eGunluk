@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5" style="max-width: 600px;">
+  <h2 class="mb-4 text-center">Profilini Düzenle</h2>
+
+  {% if messages %}
+    {% for message in messages %}
+      <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+        {{ message }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    {% endfor %}
+  {% endif %}
+
+  <form method="post" novalidate>
+    {% csrf_token %}
+    <div class="mb-3">
+      <label for="username" class="form-label">Kullanıcı Adı</label>
+      <input type="text" class="form-control" id="username" name="username" value="{{ profile.username }}" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="email" class="form-label">E-posta</label>
+      <input type="email" class="form-control" id="email" name="email" value="{{ profile.email }}" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="first_name" class="form-label">Ad</label>
+      <input type="text" class="form-control" id="first_name" name="first_name" value="{{ profile.first_name }}">
+    </div>
+
+    <div class="mb-3">
+      <label for="last_name" class="form-label">Soyad</label>
+      <input type="text" class="form-control" id="last_name" name="last_name" value="{{ profile.last_name }}">
+    </div>
+
+    <div class="mb-3">
+      <label for="age" class="form-label">Yaş</label>
+      <input type="number" class="form-control" id="age" name="age" value="{{ profile.age }}">
+    </div>
+
+    <div class="mb-3">
+      <label for="phone" class="form-label">Telefon Numarası</label>
+      <input type="text" class="form-control" id="phone" name="phone" value="{{ profile.phone }}">
+    </div>
+
+    <button type="submit" class="btn btn-primary w-100">Güncelle</button>
+  </form>
+</div>
+{% endblock %}

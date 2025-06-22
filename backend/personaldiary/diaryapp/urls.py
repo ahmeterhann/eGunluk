@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import RegisterView, LoginView, DiaryListCreateView, DiaryRetrieveUpdateDestroyView, DiarySearchView
+from .views import RegisterView, LoginView, DiaryListCreateView, DiaryRetrieveUpdateDestroyView, DiarySearchView, ProfileView
  
 
 urlpatterns = [
@@ -8,6 +8,8 @@ urlpatterns = [
     path('api/diaries/', DiaryListCreateView.as_view(), name='diary-list-create'),
     path('api/diaries/<int:pk>/', DiaryRetrieveUpdateDestroyView.as_view(), name='diary-detail'),
     path('api/diaries/search/', DiarySearchView.as_view(), name='diary-search'),
+    path('api/profile/', ProfileView.as_view(), name='profile'),
+
 
 ]
 

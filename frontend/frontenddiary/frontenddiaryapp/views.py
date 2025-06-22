@@ -270,3 +270,45 @@ def search_results_view(request):
             messages.error(request, f"Bağlantı hatası: {str(e)}")
 
     return render(request, 'frontenddiaryapp/searchresults.html', {'diaries': diaries, 'query': query})
+
+
+def profile_view(request):
+    access_token = request.session.get('access_token')
+    if not access_token:
+        messages.error(request, 'Profil bilgilerini görüntülemek için önce giriş yapmalısınız.')
+        return redirect('login-view')
+
+    headers = {'Authorization': f'Bearer {access_token}'}
+    api_url = 'http://127.0.0.1:8000/diary/api/profile/'
+
+    if request.method == 'POST':
+        data = {
+            'username': request.POST.get('username'),
+            'email': request.POST.get('email'),
+            'first_name': request.POST.get('first_name'),
+            'last_name': request.POST.get('last_name'),
+            'age': request.POST.get('age'),
+            'phone': request.POST.get('phone'),
+        }
+
+        try:
+            response = requests.put(api_url, headers=headers, json=data, timeout=5)
+            if response.status_code == 200:
+                messages.success(request, 'Profil bilgileri başarıyla güncellendi.')
+                return redirect('frontenddiaryapp:profile-view')
+            else:
+                messages.error(request, f"API Hatası: {response.status_code}")
+        except requests.exceptions.RequestException as e:
+            messages.error(request, f'Bağlantı hatası: {str(e)}')
+
+    try:
+        response = requests.get(api_url, headers=headers, timeout=5)
+        if response.status_code == 200:
+            profile_data = response.json()
+            return render(request, 'frontenddiaryapp/profile.html', {'profile': profile_data})
+        else:
+            messages.error(request, f"Profil verileri alınamadı: {response.status_code}")
+    except requests.exceptions.RequestException as e:
+        messages.error(request, f'Bağlantı hatası: {str(e)}')
+
+    return render(request, 'frontenddiaryapp/profile.html', {'profile': {}})
