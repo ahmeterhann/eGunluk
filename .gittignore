@@ -1,0 +1,41 @@
+# Python cache dosyaları
+__pycache__/
+*.py[cod]
+
+# Sanal ortam klasörleri
+venv/
+env/
+.venv/
+
+# Django migration cache (opsiyonel)
+*/migrations/*.pyc
+*/migrations/*.py[cod]
+*/migrations/__pycache__/
+
+# Log dosyaları
+*.log
+
+# SQLite veritabanı dosyaları
+*.sqlite3
+
+# IDE ayar dosyaları
+.vscode/
+.idea/
+
+# Mac OS ve Windows geçici dosyaları
+.DS_Store
+Thumbs.db
+
+# Test ve coverage dosyaları
+.pytest_cache/
+htmlcov/
+.coverage
+
+# Ortam değişkenleri dosyaları
+.env
+.env.*
+
+# Diğer geçici dosyalar
+*.swp
+*.bak
+*.tmp

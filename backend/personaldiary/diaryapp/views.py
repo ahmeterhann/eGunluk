@@ -11,20 +11,38 @@ from django.db.models import Q
 from .models import Profile
 from .serializer import ProfileSerializer
 from django.contrib.auth.models import User
+import logging
+from django.db import IntegrityError
+from rest_framework.exceptions import ValidationError
 
 
 
-
+logger = logging.getLogger(__name__)
 
 class RegisterView(APIView):
     def post(self, request):
-        serializer = UserRegisterSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response({'message': 'Kullanıcı başarıyla oluşturuldu.'}, status=status.HTTP_201_CREATED)
-        print(serializer.errors)
+        try:
+            logger.info("RegisterView POST method çağrıldı.")
+            serializer = UserRegisterSerializer(data=request.data)
+            if serializer.is_valid():
+                serializer.save()
+                logger.info(f"Yeni kullanıcı oluşturuldu: {serializer.data.get('email')}")
+                return Response({'message': 'Kullanıcı başarıyla oluşturuldu.'}, status=status.HTTP_201_CREATED)
+            
+            logger.warning(f"Kayıt validation hatası: {serializer.errors}")
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        except IntegrityError as e:
+            logger.error(f"Veritabanı hatası (muhtemelen tekrar eden kullanıcı): {str(e)}")
+            return Response({'error': 'Bu e-posta zaten kayıtlı.'}, status=status.HTTP_400_BAD_REQUEST)
+
+        except ValidationError as e:
+            logger.error(f"Doğrulama hatası: {str(e)}")
+            return Response({'error': str(e)}, status=status.HTTP_400_BAD_REQUEST)
+
+        except Exception as e:
+            logger.exception("Kayıt sırasında beklenmeyen bir hata oluştu.")
+            return Response({'error': 'Sunucu hatası oluştu. Lütfen daha sonra tekrar deneyin.'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 class LoginView(APIView):
     def post(self, request):
