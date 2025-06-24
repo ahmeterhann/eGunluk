@@ -289,6 +289,10 @@ def profile_view(request):
             'last_name': request.POST.get('last_name'),
             'age': request.POST.get('age'),
             'phone': request.POST.get('phone'),
+            'bio': request.POST.get('bio'),
+            'gender': request.POST.get('gender'),
+            'birth_date': request.POST.get('birth_date'),
+            'location': request.POST.get('location'),
         }
 
         try:
@@ -312,3 +316,24 @@ def profile_view(request):
         messages.error(request, f'Bağlantı hatası: {str(e)}')
 
     return render(request, 'frontenddiaryapp/profile.html', {'profile': {}})
+
+def profile_readonly_view(request):
+    access_token = request.session.get('access_token')
+    if not access_token:
+        messages.error(request, 'Profil bilgilerini görüntülemek için giriş yapmalısınız.')
+        return redirect('login-view')
+
+    headers = {'Authorization': f'Bearer {access_token}'}
+    api_url = 'http://127.0.0.1:8000/diary/api/profile/'
+
+    try:
+        response = requests.get(api_url, headers=headers, timeout=5)
+        if response.status_code == 200:
+            profile_data = response.json()
+            return render(request, 'frontenddiaryapp/profile_readonly.html', {'profile': profile_data})
+        else:
+            messages.error(request, f"Profil verileri alınamadı: {response.status_code}")
+    except requests.exceptions.RequestException as e:
+        messages.error(request, f'Bağlantı hatası: {str(e)}')
+
+    return render(request, 'frontenddiaryapp/profile_readonly.html', {'profile': {}})

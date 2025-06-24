@@ -65,10 +65,17 @@ class DiarySerializer(serializers.Serializer):
 
 
 class ProfileSerializer(serializers.Serializer):
-    first_name = serializers.CharField(allow_blank=True, required=False)
-    last_name = serializers.CharField(allow_blank=True, required=False)
+    first_name = serializers.CharField(allow_blank=True, required=False, source='user.first_name')
+    last_name = serializers.CharField(allow_blank=True, required=False, source='user.last_name')
     age = serializers.IntegerField(required=False)
     phone = serializers.CharField(allow_blank=True, required=False)
+    username = serializers.CharField(source='user.username', required=False)
+    email = serializers.EmailField(source='user.email', required=False)
+    bio = serializers.CharField(allow_blank=True, required=False)
+    gender = serializers.CharField(allow_blank=True, required=False)
+    birth_date = serializers.DateField(required=False)
+    location = serializers.CharField(allow_blank=True, required=False)
+
     
     def to_representation(self, instance):
         return {
@@ -78,16 +85,28 @@ class ProfileSerializer(serializers.Serializer):
             "last_name": instance.user.last_name,
             "age": instance.age,
             "phone": instance.phone,
+            "bio": instance.bio,
+            "gender": instance.gender,
+            "birth_date": instance.birth_date,
+            "location": instance.location,
         }
 
     def update(self, instance, validated_data):
+        user_data = validated_data.pop('user', {})
+
         instance.age = validated_data.get('age', instance.age)
         instance.phone = validated_data.get('phone', instance.phone)
+        instance.bio = validated_data.get('bio', instance.bio)
+        instance.gender = validated_data.get('gender', instance.gender)
+        instance.birth_date = validated_data.get('birth_date', instance.birth_date)
+        instance.location = validated_data.get('location', instance.location)
         instance.save()
         
         user = instance.user
-        user.first_name = validated_data.get('first_name', user.first_name)
-        user.last_name = validated_data.get('last_name', user.last_name)
+        user.username = user_data.get('username', user.username)
+        user.first_name = user_data.get('first_name', user.first_name)
+        user.last_name = user_data.get('last_name', user.last_name)
+        user.email = user_data.get('email', user.email)
         user.save()
         
         return instance

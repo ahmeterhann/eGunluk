@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="container mt-5" style="max-width: 600px;">
+<div class="container mt-5" style="max-width: 800px;">
   <h2 class="mb-4 text-center">Profilini Düzenle</h2>
 
   {% if messages %}
@@ -15,37 +15,66 @@
 
   <form method="post" novalidate>
     {% csrf_token %}
-    <div class="mb-3">
-      <label for="username" class="form-label">Kullanıcı Adı</label>
-      <input type="text" class="form-control" id="username" name="username" value="{{ profile.username }}" required>
-    </div>
+    <div class="row g-3">
+      <div class="col-md-6">
+        <label for="username" class="form-label">Kullanıcı Adı</label>
+        <input type="text" class="form-control" id="username" name="username" value="{{ profile.username }}" required>
+      </div>
 
-    <div class="mb-3">
-      <label for="email" class="form-label">E-posta</label>
-      <input type="email" class="form-control" id="email" name="email" value="{{ profile.email }}" required>
-    </div>
+      <div class="col-md-6">
+        <label for="email" class="form-label">E-posta</label>
+        <input type="email" class="form-control" id="email" name="email" value="{{ profile.email }}" required>
+      </div>
 
-    <div class="mb-3">
-      <label for="first_name" class="form-label">Ad</label>
-      <input type="text" class="form-control" id="first_name" name="first_name" value="{{ profile.first_name }}">
-    </div>
+      <div class="col-md-6">
+        <label for="first_name" class="form-label">Ad</label>
+        <input type="text" class="form-control" id="first_name" name="first_name" value="{{ profile.first_name }}">
+      </div>
 
-    <div class="mb-3">
-      <label for="last_name" class="form-label">Soyad</label>
-      <input type="text" class="form-control" id="last_name" name="last_name" value="{{ profile.last_name }}">
-    </div>
+      <div class="col-md-6">
+        <label for="last_name" class="form-label">Soyad</label>
+        <input type="text" class="form-control" id="last_name" name="last_name" value="{{ profile.last_name }}">
+      </div>
 
-    <div class="mb-3">
-      <label for="age" class="form-label">Yaş</label>
-      <input type="number" class="form-control" id="age" name="age" value="{{ profile.age }}">
-    </div>
+      <div class="col-md-6">
+        <label for="age" class="form-label">Yaş</label>
+        <input type="number" class="form-control" id="age" name="age" value="{{ profile.age }}">
+      </div>
 
-    <div class="mb-3">
-      <label for="phone" class="form-label">Telefon Numarası</label>
-      <input type="text" class="form-control" id="phone" name="phone" value="{{ profile.phone }}">
-    </div>
+      <div class="col-md-6">
+        <label for="birth_date" class="form-label">Doğum Tarihi</label>
+        <input type="date" class="form-control" id="birth_date" name="birth_date" value="{{ profile.birth_date }}">
+      </div>
 
-    <button type="submit" class="btn btn-primary w-100">Güncelle</button>
+      <div class="col-md-6">
+        <label for="phone" class="form-label">Telefon Numarası</label>
+        <input type="text" class="form-control" id="phone" name="phone" value="{{ profile.phone }}">
+      </div>
+
+      <div class="col-md-6">
+        <label for="gender" class="form-label">Cinsiyet</label>
+        <select class="form-select" id="gender" name="gender">
+          <option value="">Seçiniz</option>
+          <option value="Erkek" {% if profile.gender == 'Erkek' %}selected{% endif %}>Erkek</option>
+          <option value="Kadın" {% if profile.gender == 'Kadın' %}selected{% endif %}>Kadın</option>
+          <option value="Diğer" {% if profile.gender == 'Diğer' %}selected{% endif %}>Diğer</option>
+        </select>
+      </div>
+
+      <div class="col-md-6">
+        <label for="location" class="form-label">Konum</label>
+        <input type="text" class="form-control" id="location" name="location" value="{{ profile.location }}">
+      </div>
+
+      <div class="col-12">
+        <label for="bio" class="form-label">Hakkında</label>
+        <textarea class="form-control" id="bio" name="bio" rows="3">{{ profile.bio }}</textarea>
+      </div>
+
+      <div class="col-12">
+        <button type="submit" class="btn btn-primary w-100">Güncelle</button>
+      </div>
+    </div>
   </form>
 </div>
 {% endblock %}

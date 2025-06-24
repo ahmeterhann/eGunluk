@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5" style="max-width: 600px;">
+  <h2 class="mb-4 text-center">Profil Bilgileri</h2>
+
+  <div class="row">
+    <div class="col-md-6 mb-3">
+      <strong>Kullanıcı Adı:</strong>
+      <p>{{ profile.username }}</p>
+    </div>
+
+    <div class="col-md-6 mb-3">
+      <strong>E-posta:</strong>
+      <p>{{ profile.email }}</p>
+    </div>
+
+    <div class="col-md-6 mb-3">
+      <strong>Ad:</strong>
+      <p>{{ profile.first_name }}</p>
+    </div>
+
+    <div class="col-md-6 mb-3">
+      <strong>Soyad:</strong>
+      <p>{{ profile.last_name }}</p>
+    </div>
+
+    <div class="col-md-6 mb-3">
+      <strong>Yaş:</strong>
+      <p>{{ profile.age }}</p>
+    </div>
+
+    <div class="col-md-6 mb-3">
+      <strong>Doğum Tarihi:</strong>
+      <p>{{ profile.birth_date }}</p>
+    </div>
+
+    <div class="col-md-6 mb-3">
+      <strong>Telefon:</strong>
+      <p>{{ profile.phone }}</p>
+    </div>
+
+    <div class="col-md-6 mb-3">
+      <strong>Cinsiyet:</strong>
+      <p>{{ profile.gender }}</p>
+    </div>
+
+    <div class="col-md-12 mb-3">
+      <strong>Lokasyon:</strong>
+      <p>{{ profile.location }}</p>
+    </div>
+
+    <div class="col-md-12 mb-3">
+      <strong>Hakkında:</strong>
+      <p>{{ profile.bio }}</p>
+    </div>
+  </div>
+
+  <div class="text-center mt-4">
+    <a href="{% url 'frontenddiaryapp:profile-view' %}" class="btn btn-primary">Profili Düzenle</a>
+  </div>
+</div>
+{% endblock %}
