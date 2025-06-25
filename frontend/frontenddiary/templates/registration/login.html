@@ -1,30 +1,35 @@
 {% extends "base.html" %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'frontenddiaryapp/css/styles.css' %}">
+{% endblock %}
 
 {% block content %}
+<div class="login-container">
+  <h2>Giriş Yap</h2>
 
-<h2>Kullanıcı Girişi</h2>
+  {% if messages %}
+  <div class="messages">
+    {% for message in messages %}
+      <div class="alert {% if 'error' in message.tags %}alert-error{% else %}alert-success{% endif %}">
+        {{ message }}
+      </div>
+    {% endfor %}
+  </div>
+  {% endif %}
 
-{% if messages %}
-    <ul>
-        {% for message in messages %}
-            <li class="{% if message.tags == 'error' %}error{% else %}success{% endif %}">
-                {{ message }}
-            </li>
-        {% endfor %}
-    </ul>
-{% endif %}
-
-<form method="post" action="">
+  <form method="post" action="" class="login-form">
     {% csrf_token %}
-    <label for="username">Kullanıcı Adı:</label><br />
-    <input type="text" id="username" name="username" required /><br /><br />
+    <label for="username">Kullanıcı Adı</label>
+    <input type="text" id="username" name="username" placeholder="Kullanıcı adınızı girin" required>
 
-    <label for="password">Şifre:</label><br />
-    <input type="password" id="password" name="password" required /><br /><br />
+    <label for="password">Şifre</label>
+    <input type="password" id="password" name="password" placeholder="Şifrenizi girin" required>
 
-    <button type="submit">Giriş Yap</button>
-</form>
+    <button type="submit" class="btn-submit btn-blue">Giriş Yap</button>
+  </form>
 
-<p>Hesabınız yoksa <a href="{% url 'register-view' %}">kayıt olun</a>.</p>
-
+  <p class="register-text">Hesabınız yok mu? <a href="{% url 'register-view' %}">Kayıt Olun</a></p>
+</div>
 {% endblock %}

@@ -4,6 +4,9 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 import urllib.parse
 import logging
+import httpx 
+from django.http import HttpRequest
+from asgiref.sync import sync_to_async
 
 
 logger = logging.getLogger(__name__)
@@ -63,14 +66,17 @@ def login_view(request):
                 error = response.json().get('non_field_errors', ['Bilinmeyen hata'])[0]
                 messages.error(request, f'Giriş başarısız: {error}')
                 logger.warning(f"Giriş başarısız: {error} — Kullanıcı: {data['username']}")
-                return render(request, 'frontenddiaryapp/login.html')
+                return render(request, 'registration/login.html')
+
 
         except requests.exceptions.RequestException as e:
             messages.error(request, 'Sunucuya ulaşılamadı.')
             logger.error(f"API isteği sırasında hata: {str(e)}")
-            return render(request, 'frontenddiaryapp/login.html')
+            return render(request, 'registration/login.html')
+
 
     return render(request, 'registration/login.html')
+
 
 
 
@@ -105,67 +111,82 @@ def logout_view(request):
 
 
 
-def add_diary_view(request):
-    if not request.session.get('access_token'):
-        messages.error(request, 'Giriş yapmalısınız.')
-        return redirect('login-view')
+async def add_diary_view(request):
+    # session'dan access_token almak async bağlamda:
+    access_token = await sync_to_async(request.session.get)('access_token')
 
-    if request.method == 'POST':
-        access_token = request.session.get('access_token')
-        headers = {
-            'Authorization': f'Bearer {access_token}'
-        }
+    if not access_token:
+        await sync_to_async(messages.error)(request, 'Giriş yapmalısınız.')
+        return await sync_to_async(redirect)('login-view')
+
+    # request.method da async bağlamda sync olarak alınmalı
+    method = await sync_to_async(lambda: request.method)()
+
+    if method == 'POST':
+        # POST verilerini async bağlamda senkron olarak al
+        title = await sync_to_async(lambda: request.POST.get('title'))()
+        content = await sync_to_async(lambda: request.POST.get('content'))()
+        date = await sync_to_async(lambda: request.POST.get('date'))()
+
+        headers = {'Authorization': f'Bearer {access_token}'}
         data = {
-            'title': request.POST.get('title'),
-            'content': request.POST.get('content'),
-            'date': request.POST.get('date')
+            'title': title,
+            'content': content,
+            'date': date,
         }
-
         api_url = 'http://127.0.0.1:8000/diary/api/diaries/'
 
         try:
-            response = requests.post(api_url, headers=headers, json=data, timeout=5)
+            async with httpx.AsyncClient() as client:
+                response = await client.post(api_url, headers=headers, json=data, timeout=5)
 
             if response.status_code == 201:
-                logger.info(f"Günlük başarıyla eklendi. Kullanıcı: {request.session.get('username')}, Başlık: {data['title']}")
-                messages.success(request, 'Günlük başarıyla eklendi.')
+                username = await sync_to_async(request.session.get)('username')
+                logger.info(f"Günlük başarıyla eklendi. Kullanıcı: {username}, Başlık: {title}")
+                await sync_to_async(messages.success)(request, 'Günlük başarıyla eklendi.')
+                return await sync_to_async(redirect)('frontenddiaryapp:diary-list-view')
             else:
-                logger.warning(f"API Hatası: {response.status_code} - {response.json()} Kullanıcı: {request.session.get('username')}")
-                messages.error(request, f'API Hatası: {response.status_code} - {response.json()}')
+                username = await sync_to_async(request.session.get)('username')
+                logger.warning(f"API Hatası: {response.status_code} - {response.json()} Kullanıcı: {username}")
+                await sync_to_async(messages.error)(request, f'API Hatası: {response.status_code} - {response.json()}')
 
-        except requests.exceptions.RequestException as e:
-            logger.error(f"Bağlantı hatası: {str(e)} Kullanıcı: {request.session.get('username')}")
-            messages.error(request, f'Bağlantı hatası: {str(e)}')
+        except httpx.RequestError as e:
+            username = await sync_to_async(request.session.get)('username')
+            logger.error(f"Bağlantı hatası: {str(e)} Kullanıcı: {username}")
+            await sync_to_async(messages.error)(request, f'Bağlantı hatası: {str(e)}')
 
-    return render(request, 'frontenddiaryapp/adddiary.html')
+    # GET veya POST hata durumunda formu render et:
+    return await sync_to_async(render)(request, 'frontenddiaryapp/adddiary.html')
 
 
-def diary_list_view(request):
-    if not request.session.get('access_token'):
-        messages.error(request, 'Giriş yapmalısınız.')
-        return redirect('login-view')
+async def diary_list_view(request):
+    get_session = sync_to_async(request.session.get)
+    username = await get_session('username')
+    access_token = await get_session('access_token')
 
-    access_token = request.session.get('access_token')
-    headers = {
-        'Authorization': f'Bearer {access_token}'
-    }
+    if not access_token:
+        await sync_to_async(messages.error)(request, 'Giriş yapmalısınız.')
+        return await sync_to_async(redirect)('login-view')
+
+    headers = {'Authorization': f'Bearer {access_token}'}
     api_url = 'http://127.0.0.1:8000/diary/api/diaries/'
+    diaries = []
 
     try:
-        response = requests.get(api_url, headers=headers, timeout=5)
-        if response.status_code == 200:
-            diaries = response.json()
-            logger.info(f"Günlükler başarıyla listelendi. Kullanıcı: {request.session.get('username')}")
-        else:
-            logger.warning(f"API hatası: {response.status_code} Kullanıcı: {request.session.get('username')}")
-            messages.error(request, f'API Hatası: {response.status_code}')
-            diaries = []
-    except requests.exceptions.RequestException as e:
-        logger.error(f"Bağlantı hatası: {str(e)} Kullanıcı: {request.session.get('username')}")
-        messages.error(request, f'Bağlantı hatası: {str(e)}')
-        diaries = []
+        async with httpx.AsyncClient() as client:
+            response = await client.get(api_url, headers=headers, timeout=5)
+            if response.status_code == 200:
+                diaries = response.json()
+                logger.info(f"Günlükler başarıyla listelendi. Kullanıcı: {username}")
+            else:
+                logger.warning(f"API hatası: {response.status_code} Kullanıcı: {username}")
+                await sync_to_async(messages.error)(request, f'API Hatası: {response.status_code}')
+    except httpx.RequestError as e:
+        logger.error(f"Bağlantı hatası: {str(e)} Kullanıcı: {username}")
+        await sync_to_async(messages.error)(request, f'Bağlantı hatası: {str(e)}')
 
-    return render(request, 'frontenddiaryapp/diarylist.html', {'diaries': diaries})
+    return await sync_to_async(render)(request, 'frontenddiaryapp/diarylist.html', {'diaries': diaries})
+
 
 
 
@@ -197,8 +218,6 @@ def diary_detail_view(request, id):
         logger.error(f"Bağlantı hatası: {str(e)} Kullanıcı: {request.session.get('username')}, Günlük ID: {id}")
 
     return redirect('frontenddiaryapp:diary-list-view')
-
-
 
 
 def diary_update_view(request, pk):
@@ -257,7 +276,6 @@ def diary_update_view(request, pk):
             messages.error(request, f'Bağlantı hatası: {str(e)}')
 
         return redirect('frontenddiaryapp:diary-list-view')
-
     
 
 def diary_delete_view(request, pk):
@@ -289,8 +307,6 @@ def diary_delete_view(request, pk):
 
 
 
-
-
 def search_results_view(request):
     query = request.GET.get('q', '')
     diaries = []
@@ -319,6 +335,8 @@ def search_results_view(request):
             messages.error(request, f"Bağlantı hatası: {str(e)}")
 
     return render(request, 'frontenddiaryapp/searchresults.html', {'diaries': diaries, 'query': query})
+
+
 
 
 def profile_view(request):
@@ -373,7 +391,6 @@ def profile_view(request):
 
     return render(request, 'frontenddiaryapp/profile.html', {'profile': {}})
 
-
 def profile_readonly_view(request):
     access_token = request.session.get('access_token')
     if not access_token:
@@ -398,4 +415,5 @@ def profile_readonly_view(request):
         messages.error(request, f'Bağlantı hatası: {str(e)}')
 
     return render(request, 'frontenddiaryapp/profile_readonly.html', {'profile': {}})
+
 

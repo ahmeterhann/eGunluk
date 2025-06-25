@@ -1053,3 +1053,100 @@ INFO 2025-06-24 23:34:46,201 views ProfileView GET çaðrýldý. Kullanýcý: erhan
 INFO 2025-06-24 23:34:49,124 views ProfileView PUT çaðrýldý. Kullanýcý: erhan
 INFO 2025-06-24 23:34:49,157 views Profil güncellendi. Kullanýcý: erhan
 INFO 2025-06-24 23:34:49,168 views ProfileView GET çaðrýldý. Kullanýcý: erhan
+INFO 2025-06-25 22:09:45,314 views LoginView POST method çaðrýldý.
+INFO 2025-06-25 22:09:45,880 views Kullanýcý giriþ yaptý: erhan
+INFO 2025-06-25 22:10:28,663 views LoginView POST method çaðrýldý.
+INFO 2025-06-25 22:10:29,108 views Kullanýcý giriþ yaptý: erhan
+INFO 2025-06-25 22:12:00,779 views LoginView POST method çaðrýldý.
+INFO 2025-06-25 22:12:01,270 views Kullanýcý giriþ yaptý: erhan
+INFO 2025-06-25 22:16:12,754 views LoginView POST method çaðrýldý.
+INFO 2025-06-25 22:16:13,231 views Kullanýcý giriþ yaptý: erhan
+INFO 2025-06-25 22:18:36,029 views LoginView POST method çaðrýldý.
+INFO 2025-06-25 22:18:36,437 views Kullanýcý giriþ yaptý: erhan
+INFO 2025-06-25 22:18:37,948 views DiaryListCreateView GET method çaðrýldý. Kullanýcý: erhan
+INFO 2025-06-25 22:18:45,103 views DiaryListCreateView GET method çaðrýldý. Kullanýcý: erhan
+INFO 2025-06-25 22:20:48,845 views DiaryListCreateView GET method çaðrýldý. Kullanýcý: erhan
+INFO 2025-06-25 22:25:18,596 views LoginView POST method çaðrýldý.
+INFO 2025-06-25 22:25:19,035 views Kullanýcý giriþ yaptý: erhan
+INFO 2025-06-25 22:25:30,737 views DiaryListCreateView POST method çaðrýldý. Kullanýcý: erhan
+INFO 2025-06-25 22:25:30,750 views Yeni günlük kaydý oluþturuldu. Kullanýcý: erhan, Günlük ID: 9
+INFO 2025-06-25 22:25:30,968 views DiaryListCreateView GET method çaðrýldý. Kullanýcý: erhan
+INFO 2025-06-25 22:33:28,763 views LoginView POST method çaðrýldý.
+INFO 2025-06-25 22:33:29,268 views Kullanýcý giriþ yaptý: erhan
+INFO 2025-06-25 22:33:31,558 views DiaryListCreateView GET method çaðrýldý. Kullanýcý: erhan
+INFO 2025-06-25 22:33:36,405 views ProfileView GET çaðrýldý. Kullanýcý: erhan
+INFO 2025-06-25 22:33:38,605 views ProfileView GET çaðrýldý. Kullanýcý: erhan
+INFO 2025-06-25 22:36:10,463 views ProfileView PUT çaðrýldý. Kullanýcý: erhan
+INFO 2025-06-25 22:36:10,560 views Profil güncellendi. Kullanýcý: erhan
+INFO 2025-06-25 22:36:10,572 views ProfileView GET çaðrýldý. Kullanýcý: erhan
+INFO 2025-06-25 22:36:12,633 views ProfileView GET çaðrýldý. Kullanýcý: erhan
+INFO 2025-06-25 22:39:43,968 views LoginView POST method çaðrýldý.
+WARNING 2025-06-25 22:39:44,484 views Giriþ validation hatasý: {'non_field_errors': [ErrorDetail(string='Geçersiz kullanýcý adý veya þifre.', code='invalid')]}
+INFO 2025-06-25 22:45:11,121 views LoginView POST method çaðrýldý.
+WARNING 2025-06-25 22:45:11,603 views Giriþ validation hatasý: {'non_field_errors': [ErrorDetail(string='Geçersiz kullanýcý adý veya þifre.', code='invalid')]}
+INFO 2025-06-25 22:52:02,644 views LoginView POST method çaðrýldý.
+WARNING 2025-06-25 22:52:03,083 views Giriþ validation hatasý: {'non_field_errors': [ErrorDetail(string='Geçersiz kullanýcý adý veya þifre.', code='invalid')]}
+INFO 2025-06-25 22:52:13,483 views LoginView POST method çaðrýldý.
+INFO 2025-06-25 22:52:13,965 views Kullanýcý giriþ yaptý: erhan
+INFO 2025-06-25 23:05:34,575 views LoginView POST method çaðrýldý.
+INFO 2025-06-25 23:05:35,050 views Kullanýcý giriþ yaptý: erhan
+INFO 2025-06-25 23:07:14,591 views DiaryListCreateView GET method çaðrýldý. Kullanýcý: erhan
+INFO 2025-06-25 23:15:00,190 views LoginView POST method çaðrýldý.
+INFO 2025-06-25 23:15:00,659 views Kullanýcý giriþ yaptý: erhan
+INFO 2025-06-25 23:28:00,153 views LoginView POST method çaðrýldý.
+INFO 2025-06-25 23:28:00,696 views Kullanýcý giriþ yaptý: erhan
+INFO 2025-06-25 23:28:02,723 views DiaryListCreateView GET method çaðrýldý. Kullanýcý: erhan
+INFO 2025-06-25 23:36:21,276 views RegisterView POST method çaðrýldý.
+INFO 2025-06-25 23:36:22,011 views Yeni kullanýcý oluþturuldu: bnymn@example.com
+INFO 2025-06-25 23:36:34,907 views LoginView POST method çaðrýldý.
+INFO 2025-06-25 23:36:35,377 views Kullanýcý giriþ yaptý: bnymn
+INFO 2025-06-25 23:36:38,922 views ProfileView GET çaðrýldý. Kullanýcý: bnymn
+INFO 2025-06-25 23:36:54,425 views ProfileView PUT çaðrýldý. Kullanýcý: bnymn
+WARNING 2025-06-25 23:36:54,429 views Profil güncelleme validation hatasý: {'age': [ErrorDetail(string='A valid integer is required.', code='invalid')], 'birth_date': [ErrorDetail(string='Date has wrong format. Use one of these formats instead: YYYY-MM-DD.', code='invalid')]}
+INFO 2025-06-25 23:36:54,435 views ProfileView GET çaðrýldý. Kullanýcý: bnymn
+INFO 2025-06-25 23:36:55,811 views ProfileView GET çaðrýldý. Kullanýcý: bnymn
+INFO 2025-06-25 23:37:12,123 views DiaryListCreateView POST method çaðrýldý. Kullanýcý: bnymn
+INFO 2025-06-25 23:37:12,138 views Yeni günlük kaydý oluþturuldu. Kullanýcý: bnymn, Günlük ID: 10
+INFO 2025-06-25 23:37:12,387 views DiaryListCreateView GET method çaðrýldý. Kullanýcý: bnymn
+INFO 2025-06-25 23:37:15,106 views DiaryListCreateView GET method çaðrýldý. Kullanýcý: bnymn
+INFO 2025-06-25 23:37:19,614 views DiaryListCreateView GET method çaðrýldý. Kullanýcý: bnymn
+INFO 2025-06-25 23:37:21,304 views DiaryRetrieveUpdateDestroyView GET çaðrýldý. Kullanýcý: bnymn, Günlük ID: 10
+INFO 2025-06-25 23:37:23,040 views DiaryRetrieveUpdateDestroyView PUT çaðrýldý. Kullanýcý: bnymn, Günlük ID: 10
+INFO 2025-06-25 23:37:23,054 views Günlük güncellendi. Kullanýcý: bnymn, Günlük ID: 10
+INFO 2025-06-25 23:37:23,414 views DiaryListCreateView GET method çaðrýldý. Kullanýcý: bnymn
+INFO 2025-06-25 23:37:27,209 views DiaryRetrieveUpdateDestroyView DELETE çaðrýldý. Kullanýcý: bnymn, Günlük ID: 10
+INFO 2025-06-25 23:37:27,224 views Günlük silindi. Kullanýcý: bnymn, Günlük ID: 10
+INFO 2025-06-25 23:37:27,479 views DiaryListCreateView GET method çaðrýldý. Kullanýcý: bnymn
+INFO 2025-06-25 23:42:11,377 views LoginView POST method çaðrýldý.
+INFO 2025-06-25 23:42:11,982 views Kullanýcý giriþ yaptý: bnymn
+INFO 2025-06-25 23:42:13,849 views ProfileView GET çaðrýldý. Kullanýcý: bnymn
+INFO 2025-06-25 23:43:09,626 views ProfileView PUT çaðrýldý. Kullanýcý: bnymn
+INFO 2025-06-25 23:43:09,666 views Profil güncellendi. Kullanýcý: bnymn
+INFO 2025-06-25 23:43:09,698 views ProfileView GET çaðrýldý. Kullanýcý: bnymn
+INFO 2025-06-25 23:43:12,752 views ProfileView GET çaðrýldý. Kullanýcý: bnymn
+INFO 2025-06-25 23:43:22,981 views ProfileView GET çaðrýldý. Kullanýcý: bnymn
+INFO 2025-06-25 23:43:27,102 views ProfileView PUT çaðrýldý. Kullanýcý: bnymn
+WARNING 2025-06-25 23:43:27,103 views Profil güncelleme validation hatasý: {'age': [ErrorDetail(string='A valid integer is required.', code='invalid')]}
+INFO 2025-06-25 23:43:27,120 views ProfileView GET çaðrýldý. Kullanýcý: bnymn
+INFO 2025-06-25 23:43:31,845 views ProfileView PUT çaðrýldý. Kullanýcý: bnymn
+WARNING 2025-06-25 23:43:31,847 views Profil güncelleme validation hatasý: {'age': [ErrorDetail(string='A valid integer is required.', code='invalid')]}
+INFO 2025-06-25 23:43:31,863 views ProfileView GET çaðrýldý. Kullanýcý: bnymn
+INFO 2025-06-25 23:53:59,407 views LoginView POST method çaðrýldý.
+INFO 2025-06-25 23:53:59,975 views Kullanýcý giriþ yaptý: bnymn
+INFO 2025-06-25 23:54:01,381 views ProfileView GET çaðrýldý. Kullanýcý: bnymn
+INFO 2025-06-25 23:54:34,986 views ProfileView PUT çaðrýldý. Kullanýcý: bnymn
+INFO 2025-06-25 23:54:35,025 views Profil güncellendi. Kullanýcý: bnymn
+INFO 2025-06-25 23:54:35,049 views ProfileView GET çaðrýldý. Kullanýcý: mm
+INFO 2025-06-25 23:54:36,875 views ProfileView GET çaðrýldý. Kullanýcý: mm
+INFO 2025-06-25 23:55:04,315 views ProfileView GET çaðrýldý. Kullanýcý: mm
+INFO 2025-06-25 23:59:57,982 views LoginView POST method çaðrýldý.
+WARNING 2025-06-25 23:59:58,447 views Giriþ validation hatasý: {'non_field_errors': [ErrorDetail(string='Geçersiz kullanýcý adý veya þifre.', code='invalid')]}
+INFO 2025-06-26 00:00:01,117 views LoginView POST method çaðrýldý.
+WARNING 2025-06-26 00:00:01,590 views Giriþ validation hatasý: {'non_field_errors': [ErrorDetail(string='Geçersiz kullanýcý adý veya þifre.', code='invalid')]}
+INFO 2025-06-26 00:00:14,669 views LoginView POST method çaðrýldý.
+INFO 2025-06-26 00:00:15,184 views Kullanýcý giriþ yaptý: erhan
+INFO 2025-06-26 00:00:17,845 views ProfileView GET çaðrýldý. Kullanýcý: erhan
+INFO 2025-06-26 00:00:21,787 views ProfileView GET çaðrýldý. Kullanýcý: erhan
+INFO 2025-06-26 00:00:34,920 views DiaryListCreateView GET method çaðrýldý. Kullanýcý: erhan
+INFO 2025-06-26 00:00:37,115 views ProfileView GET çaðrýldý. Kullanýcý: erhan
+INFO 2025-06-26 00:00:48,676 views DiaryListCreateView GET method çaðrýldý. Kullanýcý: erhan
