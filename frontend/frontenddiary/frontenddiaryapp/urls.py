@@ -14,9 +14,4 @@ urlpatterns = [
     path('profile/', views.profile_view, name='profile-view'),
     path('profile-readonly/', views.profile_readonly_view, name='profile-readonly-view'),
 
-
-
-    
-
-    
 ]

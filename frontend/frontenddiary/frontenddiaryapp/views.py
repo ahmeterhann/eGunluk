@@ -112,14 +112,14 @@ def logout_view(request):
 
 
 async def add_diary_view(request):
-    # session'dan access_token almak async bağlamda:
+    
     access_token = await sync_to_async(request.session.get)('access_token')
 
     if not access_token:
         await sync_to_async(messages.error)(request, 'Giriş yapmalısınız.')
         return await sync_to_async(redirect)('login-view')
 
-    # request.method da async bağlamda sync olarak alınmalı
+    
     method = await sync_to_async(lambda: request.method)()
 
     if method == 'POST':
@@ -155,7 +155,7 @@ async def add_diary_view(request):
             logger.error(f"Bağlantı hatası: {str(e)} Kullanıcı: {username}")
             await sync_to_async(messages.error)(request, f'Bağlantı hatası: {str(e)}')
 
-    # GET veya POST hata durumunda formu render et:
+    
     return await sync_to_async(render)(request, 'frontenddiaryapp/adddiary.html')
 
 

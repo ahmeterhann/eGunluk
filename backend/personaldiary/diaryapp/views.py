@@ -176,7 +176,7 @@ class DiarySearchView(APIView):
 
     def get(self, request):
         try:
-            query = request.query_params.get('q', '')  # ?q=aramaTerimi
+            query = request.query_params.get('q', '')  
             logger.info(f"DiarySearchView GET çağrıldı. Kullanıcı: {request.user.username}, Arama: '{query}'")
 
             if query:

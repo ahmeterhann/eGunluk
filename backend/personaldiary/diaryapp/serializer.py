@@ -43,7 +43,7 @@ class DiarySerializer(serializers.Serializer):
     date = serializers.DateField()
     created_at = serializers.DateTimeField(read_only=True)
     
-    # user'ı read_only tutuyoruz, view'de otomatik set edeceğiz
+
     user = serializers.PrimaryKeyRelatedField(read_only=True)
 
     def create(self, validated_data):
@@ -51,18 +51,12 @@ class DiarySerializer(serializers.Serializer):
         diary = Diary.objects.create(user=user, **validated_data)
         return diary
     
-
-
-
     def update(self, instance, validated_data):
         instance.title = validated_data.get('title', instance.title)
         instance.content = validated_data.get('content', instance.content)
         instance.date = validated_data.get('date', instance.date)
         instance.save()
         return instance
-
-
-
 
 class ProfileSerializer(serializers.Serializer):
     first_name = serializers.CharField(allow_blank=True, required=False, source='user.first_name')
