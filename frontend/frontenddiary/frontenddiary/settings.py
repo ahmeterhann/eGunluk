@@ -148,7 +148,7 @@ LOGGING = {
             'level': 'DEBUG',
             'propagate': True,
         },
-        'frontenddiary.views': {  # Eğer view dosyanın tam yolu buysa
+        'frontenddiaryapp.views': {  # Eğer view dosyanın tam yolu buysa
             'handlers': ['file'],
             'level': 'DEBUG',
             'propagate': False,

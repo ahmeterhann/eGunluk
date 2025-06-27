@@ -52,6 +52,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'diaryapp.middleware.RequestLoggingMiddleware',
 ]
 
 # CORS ayarları
@@ -159,7 +160,12 @@ LOGGING = {
             'level': 'DEBUG',
             'propagate': True,
         },
-        'diaryapp.views': {  # Buraya kendi app/modül adını yaz
+        'diaryapp.views': {  
+            'handlers': ['file'],
+            'level': 'DEBUG',
+            'propagate': False,
+        },
+        'diaryapp.middleware': {  
             'handlers': ['file'],
             'level': 'DEBUG',
             'propagate': False,
