@@ -123,7 +123,6 @@ async def add_diary_view(request):
     method = await sync_to_async(lambda: request.method)()
 
     if method == 'POST':
-        # POST verilerini async bağlamda senkron olarak al
         title = await sync_to_async(lambda: request.POST.get('title'))()
         content = await sync_to_async(lambda: request.POST.get('content'))()
         date = await sync_to_async(lambda: request.POST.get('date'))()

@@ -1205,3 +1205,78 @@ INFO 2025-06-27 15:31:09,525 views DiaryRetrieveUpdateDestroyView DELETE çaðrýld
 INFO 2025-06-27 15:31:09,540 views Günlük silindi. Kullanýcý: erhan, Günlük ID: 11
 INFO 2025-06-27 15:31:09,818 middleware HTTP GET request to /diary/api/diaries/ by Anonymous
 INFO 2025-06-27 15:31:09,823 views DiaryListCreateView GET method çaðrýldý. Kullanýcý: erhan
+INFO 2025-06-27 19:53:36,079 middleware HTTP POST request to /diary/api/login/ by Anonymous
+INFO 2025-06-27 19:53:36,080 views LoginView POST method çaðrýldý.
+INFO 2025-06-27 19:53:36,489 views Kullanýcý giriþ yaptý: erhan
+INFO 2025-06-27 19:54:45,145 middleware HTTP POST request to /diary/api/login/ by Anonymous
+INFO 2025-06-27 19:54:45,146 views LoginView POST method çaðrýldý.
+INFO 2025-06-27 19:54:45,574 views Kullanýcý giriþ yaptý: erhan
+INFO 2025-06-27 19:55:24,574 middleware HTTP POST request to /diary/api/diaries/ by Anonymous
+INFO 2025-06-27 19:55:24,576 views DiaryListCreateView POST method çaðrýldý. Kullanýcý: erhan
+INFO 2025-06-27 19:55:24,604 views Yeni günlük kaydý oluþturuldu. Kullanýcý: erhan, Günlük ID: 12
+INFO 2025-06-27 19:55:24,822 middleware HTTP GET request to /diary/api/diaries/ by Anonymous
+INFO 2025-06-27 19:55:24,826 views DiaryListCreateView GET method çaðrýldý. Kullanýcý: erhan
+INFO 2025-06-27 19:55:29,108 middleware HTTP DELETE request to /diary/api/diaries/2/ by Anonymous
+INFO 2025-06-27 19:55:29,110 views DiaryRetrieveUpdateDestroyView DELETE çaðrýldý. Kullanýcý: erhan, Günlük ID: 2
+INFO 2025-06-27 19:55:29,122 views Günlük silindi. Kullanýcý: erhan, Günlük ID: 2
+INFO 2025-06-27 19:55:29,337 middleware HTTP GET request to /diary/api/diaries/ by Anonymous
+INFO 2025-06-27 19:55:29,340 views DiaryListCreateView GET method çaðrýldý. Kullanýcý: erhan
+INFO 2025-06-27 19:55:32,790 middleware HTTP DELETE request to /diary/api/diaries/4/ by Anonymous
+INFO 2025-06-27 19:55:32,791 views DiaryRetrieveUpdateDestroyView DELETE çaðrýldý. Kullanýcý: erhan, Günlük ID: 4
+INFO 2025-06-27 19:55:32,803 views Günlük silindi. Kullanýcý: erhan, Günlük ID: 4
+INFO 2025-06-27 19:55:33,021 middleware HTTP GET request to /diary/api/diaries/ by Anonymous
+INFO 2025-06-27 19:55:33,023 views DiaryListCreateView GET method çaðrýldý. Kullanýcý: erhan
+INFO 2025-06-27 19:55:36,511 middleware HTTP DELETE request to /diary/api/diaries/9/ by Anonymous
+INFO 2025-06-27 19:55:36,513 views DiaryRetrieveUpdateDestroyView DELETE çaðrýldý. Kullanýcý: erhan, Günlük ID: 9
+INFO 2025-06-27 19:55:36,524 views Günlük silindi. Kullanýcý: erhan, Günlük ID: 9
+INFO 2025-06-27 19:55:36,735 middleware HTTP GET request to /diary/api/diaries/ by Anonymous
+INFO 2025-06-27 19:55:36,737 views DiaryListCreateView GET method çaðrýldý. Kullanýcý: erhan
+INFO 2025-06-27 19:56:00,769 middleware HTTP GET request to /diary/api/profile/ by Anonymous
+INFO 2025-06-27 19:56:00,770 views ProfileView GET çaðrýldý. Kullanýcý: erhan
+INFO 2025-06-27 19:56:06,449 middleware HTTP GET request to /diary/api/profile/ by Anonymous
+INFO 2025-06-27 19:56:06,451 views ProfileView GET çaðrýldý. Kullanýcý: erhan
+INFO 2025-06-27 19:56:40,988 middleware HTTP PUT request to /diary/api/profile/ by Anonymous
+INFO 2025-06-27 19:56:40,991 views ProfileView PUT çaðrýldý. Kullanýcý: erhan
+INFO 2025-06-27 19:56:41,063 views Profil güncellendi. Kullanýcý: erhan
+INFO 2025-06-27 19:56:41,080 middleware HTTP GET request to /diary/api/profile/ by Anonymous
+INFO 2025-06-27 19:56:41,083 views ProfileView GET çaðrýldý. Kullanýcý: erhan
+INFO 2025-06-27 19:57:22,386 middleware HTTP PUT request to /diary/api/profile/ by Anonymous
+INFO 2025-06-27 19:57:22,388 views ProfileView PUT çaðrýldý. Kullanýcý: erhan
+INFO 2025-06-27 19:57:22,425 views Profil güncellendi. Kullanýcý: erhan
+INFO 2025-06-27 19:57:22,441 middleware HTTP GET request to /diary/api/profile/ by Anonymous
+INFO 2025-06-27 19:57:22,444 views ProfileView GET çaðrýldý. Kullanýcý: erhan
+INFO 2025-06-27 19:57:25,746 middleware HTTP GET request to /diary/api/profile/ by Anonymous
+INFO 2025-06-27 19:57:25,748 views ProfileView GET çaðrýldý. Kullanýcý: erhan
+INFO 2025-06-27 19:57:55,399 middleware HTTP GET request to /diary/api/diaries/search/?q=test by Anonymous
+INFO 2025-06-27 19:57:55,401 views DiarySearchView GET çaðrýldý. Kullanýcý: erhan, Arama: 'test'
+INFO 2025-06-28 16:22:02,172 middleware HTTP POST request to /diary/api/login/ by Anonymous
+INFO 2025-06-28 16:22:02,173 views LoginView POST method çaðrýldý.
+INFO 2025-06-28 16:22:02,582 views Kullanýcý giriþ yaptý: erhan
+INFO 2025-06-28 16:22:06,378 middleware HTTP GET request to /diary/api/profile/ by Anonymous
+INFO 2025-06-28 16:22:06,381 views ProfileView GET çaðrýldý. Kullanýcý: erhan
+INFO 2025-06-28 16:22:08,587 middleware HTTP GET request to /diary/api/diaries/ by Anonymous
+INFO 2025-06-28 16:22:08,589 views DiaryListCreateView GET method çaðrýldý. Kullanýcý: erhan
+INFO 2025-06-28 16:22:12,430 middleware HTTP DELETE request to /diary/api/diaries/12/ by Anonymous
+INFO 2025-06-28 16:22:12,432 views DiaryRetrieveUpdateDestroyView DELETE çaðrýldý. Kullanýcý: erhan, Günlük ID: 12
+INFO 2025-06-28 16:22:12,445 views Günlük silindi. Kullanýcý: erhan, Günlük ID: 12
+INFO 2025-06-28 16:22:12,679 middleware HTTP GET request to /diary/api/diaries/ by Anonymous
+INFO 2025-06-28 16:22:12,683 views DiaryListCreateView GET method çaðrýldý. Kullanýcý: erhan
+INFO 2025-06-28 16:22:15,162 middleware HTTP GET request to /diary/api/diaries/ by Anonymous
+INFO 2025-06-28 16:22:15,163 views DiaryListCreateView GET method çaðrýldý. Kullanýcý: erhan
+INFO 2025-06-28 16:22:17,961 middleware HTTP GET request to /diary/api/profile/ by Anonymous
+INFO 2025-06-28 16:22:17,963 views ProfileView GET çaðrýldý. Kullanýcý: erhan
+INFO 2025-06-28 16:22:19,427 middleware HTTP GET request to /diary/api/diaries/ by Anonymous
+INFO 2025-06-28 16:22:19,429 views DiaryListCreateView GET method çaðrýldý. Kullanýcý: erhan
+INFO 2025-06-28 16:22:31,485 middleware HTTP POST request to /diary/api/diaries/ by Anonymous
+INFO 2025-06-28 16:22:31,487 views DiaryListCreateView POST method çaðrýldý. Kullanýcý: erhan
+INFO 2025-06-28 16:22:31,502 views Yeni günlük kaydý oluþturuldu. Kullanýcý: erhan, Günlük ID: 13
+INFO 2025-06-28 16:22:31,745 middleware HTTP GET request to /diary/api/diaries/ by Anonymous
+INFO 2025-06-28 16:22:31,749 views DiaryListCreateView GET method çaðrýldý. Kullanýcý: erhan
+INFO 2025-06-28 16:22:38,178 middleware HTTP GET request to /diary/api/diaries/search/?q=test by Anonymous
+INFO 2025-06-28 16:22:38,181 views DiarySearchView GET çaðrýldý. Kullanýcý: erhan, Arama: 'test'
+INFO 2025-06-28 16:22:45,556 middleware HTTP GET request to /diary/api/profile/ by Anonymous
+INFO 2025-06-28 16:22:45,559 views ProfileView GET çaðrýldý. Kullanýcý: erhan
+INFO 2025-06-28 16:22:47,501 middleware HTTP GET request to /diary/api/profile/ by Anonymous
+INFO 2025-06-28 16:22:47,503 views ProfileView GET çaðrýldý. Kullanýcý: erhan
+INFO 2025-06-28 16:23:02,448 middleware HTTP GET request to /diary/api/diaries/ by Anonymous
+INFO 2025-06-28 16:23:02,449 views DiaryListCreateView GET method çaðrýldý. Kullanýcý: erhan

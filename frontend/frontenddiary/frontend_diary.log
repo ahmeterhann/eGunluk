@@ -28,3 +28,43 @@ INFO 2025-06-27 15:31:06,130 views Günlük baþarýyla güncellendi. ID: 11, Kullaný
 INFO 2025-06-27 15:31:06,370 views Günlükler baþarýyla listelendi. Kullanýcý: erhan
 INFO 2025-06-27 15:31:09,541 views Günlük baþarýyla silindi. ID: 11, Kullanýcý: erhan
 INFO 2025-06-27 15:31:09,826 views Günlükler baþarýyla listelendi. Kullanýcý: erhan
+INFO 2025-06-27 19:53:36,508 views Kullanýcý giriþ yaptý: erhan
+INFO 2025-06-27 19:53:36,529 views Anasayfa görüntülendi. Kullanýcý: erhan
+INFO 2025-06-27 19:54:45,576 views Kullanýcý giriþ yaptý: erhan
+INFO 2025-06-27 19:54:45,596 views Anasayfa görüntülendi. Kullanýcý: erhan
+INFO 2025-06-27 19:55:24,606 views Günlük baþarýyla eklendi. Kullanýcý: erhan, Baþlýk: test 
+INFO 2025-06-27 19:55:24,828 views Günlükler baþarýyla listelendi. Kullanýcý: erhan
+INFO 2025-06-27 19:55:29,123 views Günlük baþarýyla silindi. ID: 2, Kullanýcý: erhan
+INFO 2025-06-27 19:55:29,342 views Günlükler baþarýyla listelendi. Kullanýcý: erhan
+INFO 2025-06-27 19:55:32,804 views Günlük baþarýyla silindi. ID: 4, Kullanýcý: erhan
+INFO 2025-06-27 19:55:33,025 views Günlükler baþarýyla listelendi. Kullanýcý: erhan
+INFO 2025-06-27 19:55:36,525 views Günlük baþarýyla silindi. ID: 9, Kullanýcý: erhan
+INFO 2025-06-27 19:55:36,739 views Günlükler baþarýyla listelendi. Kullanýcý: erhan
+INFO 2025-06-27 19:56:00,743 views Profil (sadece okuma) verisi sorgulandý: Kullanýcý=erhan
+INFO 2025-06-27 19:56:06,437 views Profil verisi sorgulandý: Kullanýcý=erhan
+INFO 2025-06-27 19:56:40,985 views Profil güncelleme denemesi: Kullanýcý=erhan
+INFO 2025-06-27 19:56:41,064 views Profil baþarýyla güncellendi: Kullanýcý=erhan
+INFO 2025-06-27 19:56:41,069 views Profil verisi sorgulandý: Kullanýcý=erhan
+INFO 2025-06-27 19:57:22,372 views Profil güncelleme denemesi: Kullanýcý=erhan
+INFO 2025-06-27 19:57:22,426 views Profil baþarýyla güncellendi: Kullanýcý=erhan
+INFO 2025-06-27 19:57:22,431 views Profil verisi sorgulandý: Kullanýcý=erhan
+INFO 2025-06-27 19:57:25,731 views Profil (sadece okuma) verisi sorgulandý: Kullanýcý=erhan
+INFO 2025-06-27 19:57:55,388 views Arama yapýlýyor. Kullanýcý: erhan, Sorgu: 'test'
+INFO 2025-06-27 19:57:55,403 views Arama baþarýlý. Kullanýcý: erhan, Sonuç sayýsý: 1
+INFO 2025-06-28 16:22:02,602 views Kullanýcý giriþ yaptý: erhan
+INFO 2025-06-28 16:22:02,621 views Anasayfa görüntülendi. Kullanýcý: erhan
+INFO 2025-06-28 16:22:06,376 views Profil verisi sorgulandý: Kullanýcý=erhan
+INFO 2025-06-28 16:22:08,600 views Günlükler baþarýyla listelendi. Kullanýcý: erhan
+INFO 2025-06-28 16:22:12,446 views Günlük baþarýyla silindi. ID: 12, Kullanýcý: erhan
+INFO 2025-06-28 16:22:12,688 views Günlükler baþarýyla listelendi. Kullanýcý: erhan
+INFO 2025-06-28 16:22:15,165 views Günlükler baþarýyla listelendi. Kullanýcý: erhan
+INFO 2025-06-28 16:22:17,959 views Profil (sadece okuma) verisi sorgulandý: Kullanýcý=erhan
+INFO 2025-06-28 16:22:19,431 views Günlükler baþarýyla listelendi. Kullanýcý: erhan
+INFO 2025-06-28 16:22:31,504 views Günlük baþarýyla eklendi. Kullanýcý: erhan, Baþlýk: test
+INFO 2025-06-28 16:22:31,751 views Günlükler baþarýyla listelendi. Kullanýcý: erhan
+INFO 2025-06-28 16:22:38,176 views Arama yapýlýyor. Kullanýcý: erhan, Sorgu: 'test'
+INFO 2025-06-28 16:22:38,183 views Arama baþarýlý. Kullanýcý: erhan, Sonuç sayýsý: 1
+INFO 2025-06-28 16:22:45,547 views Profil (sadece okuma) verisi sorgulandý: Kullanýcý=erhan
+INFO 2025-06-28 16:22:47,499 views Profil verisi sorgulandý: Kullanýcý=erhan
+INFO 2025-06-28 16:22:50,787 views Anasayfa görüntülendi. Kullanýcý: erhan
+INFO 2025-06-28 16:23:02,451 views Günlükler baþarýyla listelendi. Kullanýcý: erhan
