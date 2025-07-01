@@ -68,3 +68,27 @@ INFO 2025-06-28 16:22:45,547 views Profil (sadece okuma) verisi sorgulandý: Kull
 INFO 2025-06-28 16:22:47,499 views Profil verisi sorgulandý: Kullanýcý=erhan
 INFO 2025-06-28 16:22:50,787 views Anasayfa görüntülendi. Kullanýcý: erhan
 INFO 2025-06-28 16:23:02,451 views Günlükler baþarýyla listelendi. Kullanýcý: erhan
+INFO 2025-07-01 16:21:51,524 views Yeni kullanýcý kaydý baþarýlý: ahmet
+INFO 2025-07-01 16:22:05,191 views Kullanýcý giriþ yaptý: ahmet
+INFO 2025-07-01 16:22:05,210 views Anasayfa görüntülendi. Kullanýcý: ahmet
+INFO 2025-07-01 16:22:13,362 views Profil verisi sorgulandý: Kullanýcý=ahmet
+INFO 2025-07-01 16:22:47,775 views Profil güncelleme denemesi: Kullanýcý=ahmet
+INFO 2025-07-01 16:22:47,824 views Profil baþarýyla güncellendi: Kullanýcý=ahmet
+INFO 2025-07-01 16:22:47,832 views Profil verisi sorgulandý: Kullanýcý=ahmet
+INFO 2025-07-01 16:22:50,093 views Profil (sadece okuma) verisi sorgulandý: Kullanýcý=ahmet
+INFO 2025-07-01 16:23:16,038 views Günlük baþarýyla eklendi. Kullanýcý: ahmet, Baþlýk: internet programlama
+INFO 2025-07-01 16:23:16,258 views Günlükler baþarýyla listelendi. Kullanýcý: ahmet
+INFO 2025-07-01 16:23:20,523 views Günlük detay görüntülendi. Kullanýcý: ahmet, Günlük ID: 14
+INFO 2025-07-01 16:23:24,511 views Günlük baþarýyla güncellendi. ID: 14, Kullanýcý: ahmet
+INFO 2025-07-01 16:23:24,753 views Günlükler baþarýyla listelendi. Kullanýcý: ahmet
+INFO 2025-07-01 16:23:33,701 views Arama yapýlýyor. Kullanýcý: ahmet, Sorgu: 'int'
+INFO 2025-07-01 16:23:33,710 views Arama baþarýlý. Kullanýcý: ahmet, Sonuç sayýsý: 1
+INFO 2025-07-01 16:23:41,187 views Günlükler baþarýyla listelendi. Kullanýcý: ahmet
+INFO 2025-07-01 16:23:43,382 views Günlükler baþarýyla listelendi. Kullanýcý: ahmet
+INFO 2025-07-01 16:23:45,599 views Günlük baþarýyla silindi. ID: 14, Kullanýcý: ahmet
+INFO 2025-07-01 16:23:45,851 views Günlükler baþarýyla listelendi. Kullanýcý: ahmet
+INFO 2025-07-01 16:23:49,124 views Günlükler baþarýyla listelendi. Kullanýcý: ahmet
+INFO 2025-07-01 16:23:50,391 views Kullanýcý çýkýþ yaptý: ahmet
+WARNING 2025-07-01 16:23:54,348 views Giriþ yapýlmadan anasayfa eriþimi denendi.
+WARNING 2025-07-01 16:24:00,138 views Yetkisiz profil görüntüleme denemesi (sadece okuma).
+WARNING 2025-07-01 16:24:04,783 views Giriþ yapýlmadan anasayfa eriþimi denendi.
